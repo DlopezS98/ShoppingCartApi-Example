@@ -1,6 +1,13 @@
+using ShoppingCart.Repositories;
+using ShoppingCart.Repositories.Interfaces;
+using ShoppingCart.Services;
+using ShoppingCart.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<IProductsService, ProductsService>();
+builder.Services.AddSingleton<IProductsRepository, ProductsRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
